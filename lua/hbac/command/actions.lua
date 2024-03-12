@@ -22,9 +22,9 @@ end
 local set_all = function(pin_value)
 	local utils = require("hbac.utils")
 	local buflist = utils.get_listed_buffers()
-	local pins = utils.int_explode(vim.g.hbac_buffers or "")
+	local pins = utils.int_explode(vim.g.Hbac_buffers or "")
 	if not pin_value then
-		vim.g.hbac_buffers = ""
+		vim.g.Hbac_buffers = ""
 		return
 	end
 	for _, bufnr in ipairs(buflist) do
@@ -32,7 +32,7 @@ local set_all = function(pin_value)
 			table.insert(pins, bufnr)
 		end
 	end
-	vim.g.hbac_buffers = table.concat(pins, ",")
+	vim.g.Hbac_buffers = table.concat(pins, ",")
 end
 
 M.pin_all = function()
