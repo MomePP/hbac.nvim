@@ -19,7 +19,8 @@ local defaults = {
 }
 
 M.setup = function(user_config)
-	M.values = vim.tbl_deep_extend("force", defaults, user_config or {})
+	local current_config = M.values or defaults
+	M.values = vim.tbl_deep_extend("force", current_config, user_config or {})
 end
 
 return M
